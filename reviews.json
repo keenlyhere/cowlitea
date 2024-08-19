@@ -1,0 +1,224 @@
+{
+	"boba_shops": [
+		{
+			"shopName": "Bubble Bliss",
+			"location": {
+				"address": "123 Boba St",
+				"city": "Milk Tea City",
+				"state": "CA",
+				"country": "USA",
+				"postalCode": "90210"
+			},
+			"menu": [
+				{
+					"drinkName": "Taro Milk Tea",
+					"description": "Creamy taro-flavored milk tea with chewy tapioca pearls.",
+					"price": 6
+				},
+				{
+					"drinkName": "Matcha Latte",
+					"description": "Smooth matcha green tea with a hint of sweetness.",
+					"price": 6
+				},
+				{
+					"drinkName": "Brown Sugar Boba",
+					"description": "Rich brown sugar syrup with fresh milk and boba pearls.",
+					"price": 7
+				}
+			],
+			"mostPopularDrinks": ["Taro Milk Tea", "Brown Sugar Boba"],
+			"hours": {
+				"monday": "10:00 AM - 9:00 PM",
+				"tuesday": "10:00 AM - 9:00 PM",
+				"wednesday": "10:00 AM - 9:00 PM",
+				"thursday": "10:00 AM - 9:00 PM",
+				"friday": "10:00 AM - 10:00 PM",
+				"saturday": "10:00 AM - 10:00 PM",
+				"sunday": "11:00 AM - 8:00 PM"
+			},
+			"ratings": {
+				"avgRating": 4.7,
+				"totalReviews": 128,
+				"reviewDetails": [
+					{
+						"rating": 5,
+						"comment": "Best taro milk tea I've ever had!",
+						"reviewDate": "2024-07-21",
+						"reviewer": "Alice Brown"
+					},
+					{
+						"rating": 4,
+						"comment": "Great drinks but a bit crowded on weekends.",
+						"reviewDate": "2024-06-15",
+						"reviewer": "John Smith"
+					}
+				]
+			}
+		},
+		{
+			"shopName": "TeaMoo Delight",
+			"location": {
+				"address": "456 Pearl Ln",
+				"city": "Boba Town",
+				"state": "TX",
+				"country": "USA",
+				"postalCode": "75001"
+			},
+			"menu": [
+				{
+					"drinkName": "Honeydew Milk Tea",
+					"description": "Refreshing honeydew-flavored milk tea with tapioca pearls.",
+					"price": 6
+				},
+				{
+					"drinkName": "Oolong Tea Latte",
+					"description": "Smooth oolong tea with a creamy finish.",
+					"price": 6
+				},
+				{
+					"drinkName": "Strawberry Milk Tea",
+					"description": "Sweet strawberry-flavored milk tea with chewy boba pearls.",
+					"price": 6
+				}
+			],
+			"mostPopularDrinks": ["Honeydew Milk Tea", "Oolong Tea Latte"],
+			"hours": {
+				"monday": "10:00 AM - 8:00 PM",
+				"tuesday": "10:00 AM - 8:00 PM",
+				"wednesday": "10:00 AM - 8:00 PM",
+				"thursday": "10:00 AM - 9:00 PM",
+				"friday": "10:00 AM - 9:00 PM",
+				"saturday": "10:00 AM - 9:00 PM",
+				"sunday": "11:00 AM - 7:00 PM"
+			},
+			"ratings": {
+				"avgRating": 4.5,
+				"totalReviews": 98,
+				"reviewDetails": [
+					{
+						"rating": 5,
+						"comment": "The Brown Sugar Boba is heavenly!",
+						"reviewDate": "2024-07-05",
+						"reviewer": "Michael Lee"
+					},
+					{
+						"rating": 4,
+						"comment": "Lovely place with delicious drinks.",
+						"reviewDate": "2024-06-25",
+						"reviewer": "Jessica Nguyen"
+					}
+				]
+			}
+		},
+		{
+			"shopName": "Moo Moo Tea House",
+			"location": {
+				"address": "789 Tapioca Ave",
+				"city": "Pearl City",
+				"state": "NY",
+				"country": "USA",
+				"postalCode": "10001"
+			},
+			"menu": [
+				{
+					"drinkName": "Thai Tea",
+					"description": "Strong brewed Thai tea with condensed milk and tapioca pearls.",
+					"price": 6
+				},
+				{
+					"drinkName": "Mango Slush",
+					"description": "Refreshing mango slush with popping boba.",
+					"price": 7
+				},
+				{
+					"drinkName": "Lychee Green Tea",
+					"description": "Sweet lychee-flavored green tea with chewy boba pearls.",
+					"price": 6
+				}
+			],
+			"mostPopularDrinks": ["Thai Tea", "Mango Slush"],
+			"hours": {
+				"monday": "9:00 AM - 8:00 PM",
+				"tuesday": "9:00 AM - 8:00 PM",
+				"wednesday": "9:00 AM - 8:00 PM",
+				"thursday": "9:00 AM - 9:00 PM",
+				"friday": "9:00 AM - 9:00 PM",
+				"saturday": "10:00 AM - 9:00 PM",
+				"sunday": "10:00 AM - 7:00 PM"
+			},
+			"ratings": {
+				"avgRating": 4.6,
+				"totalReviews": 112,
+				"reviewDetails": [
+					{
+						"rating": 5,
+						"comment": "The Thai Tea is the best in town!",
+						"reviewDate": "2024-07-10",
+						"reviewer": "Samantha Jones"
+					},
+					{
+						"rating": 4,
+						"comment": "Good drinks but a bit pricey.",
+						"reviewDate": "2024-06-20",
+						"reviewer": "David Kim"
+					}
+				]
+			}
+		},
+		{
+			"shopName": "Pearl Perfection",
+			"location": {
+				"address": "321 Boba Blvd",
+				"city": "Tea City",
+				"state": "FL",
+				"country": "USA",
+				"postalCode": "33101"
+			},
+			"menu": [
+				{
+					"drinkName": "Matcha Green Tea",
+					"description": "Fresh matcha with a smooth finish, served with chewy boba pearls.",
+					"price": 7
+				},
+				{
+					"drinkName": "Wintermelon Milk Tea",
+					"description": "Sweet wintermelon with creamy milk tea.",
+					"price": 6
+				},
+				{
+					"drinkName": "Passionfruit Green Tea",
+					"description": "Refreshing passionfruit green tea with chewy boba pearls.",
+					"price": 6
+				}
+			],
+			"mostPopularDrinks": ["Matcha Green Tea", "Wintermelon Milk Tea"],
+			"hours": {
+				"monday": "10:00 AM - 8:00 PM",
+				"tuesday": "10:00 AM - 8:00 PM",
+				"wednesday": "10:00 AM - 8:00 PM",
+				"thursday": "10:00 AM - 9:00 PM",
+				"friday": "10:00 AM - 9:00 PM",
+				"saturday": "10:00 AM - 9:00 PM",
+				"sunday": "11:00 AM - 7:00 PM"
+			},
+			"ratings": {
+				"avgRating": 4.8,
+				"totalReviews": 150,
+				"reviewDetails": [
+					{
+						"rating": 5,
+						"comment": "Best Matcha I've had!",
+						"reviewDate": "2024-08-01",
+						"reviewer": "Emily Johnson"
+					},
+					{
+						"rating": 4,
+						"comment": "Great drinks, but the line can be long.",
+						"reviewDate": "2024-07-15",
+						"reviewer": "Chris Taylor"
+					}
+				]
+			}
+		}
+	]
+}
