@@ -1,0 +1,124 @@
+{
+    "reviews": [
+      {
+        "professor": "Dr. Emily Johnson",
+        "subject": "Mathematics",
+        "stars": 4,
+        "review": "Dr. Johnson is very knowledgeable and her lectures are clear. However, her exams are tough."
+      },
+      {
+        "professor": "Prof. Michael Smith",
+        "subject": "Physics",
+        "stars": 5,
+        "review": "Prof. Smith is excellent! His explanations are simple and easy to understand."
+      },
+      {
+        "professor": "Dr. Sarah Lee",
+        "subject": "Chemistry",
+        "stars": 3,
+        "review": "Dr. Lee knows her stuff, but sometimes the lectures are too fast-paced."
+      },
+      {
+        "professor": "Prof. David Brown",
+        "subject": "History",
+        "stars": 4,
+        "review": "Prof. Brown is engaging and makes history interesting."
+      },
+      {
+        "professor": "Dr. Laura Davis",
+        "subject": "Biology",
+        "stars": 2,
+        "review": "Dr. Davis is a bit disorganized, and it's hard to follow her lectures."
+      },
+      {
+        "professor": "Prof. Robert Miller",
+        "subject": "English",
+        "stars": 5,
+        "review": "Prof. Miller is fantastic! He really cares about his students and their progress."
+      },
+      {
+        "professor": "Dr. Jessica Wilson",
+        "subject": "Economics",
+        "stars": 4,
+        "review": "Dr. Wilson explains complex concepts well but expects a lot from her students."
+      },
+      {
+        "professor": "Prof. John Taylor",
+        "subject": "Computer Science",
+        "stars": 5,
+        "review": "Prof. Taylor is great at breaking down difficult topics and is always willing to help."
+      },
+      {
+        "professor": "Dr. Karen Anderson",
+        "subject": "Philosophy",
+        "stars": 3,
+        "review": "Dr. Anderson is very knowledgeable, but her classes can be a bit dry."
+      },
+      {
+        "professor": "Prof. Richard Thomas",
+        "subject": "Sociology",
+        "stars": 4,
+        "review": "Prof. Thomas is insightful and his lectures are engaging."
+      },
+      {
+        "professor": "Dr. Barbara Martinez",
+        "subject": "Art History",
+        "stars": 5,
+        "review": "Dr. Martinez is passionate about art and her enthusiasm is contagious."
+      },
+      {
+        "professor": "Prof. William Jackson",
+        "subject": "Psychology",
+        "stars": 4,
+        "review": "Prof. Jackson is a great lecturer, but his exams are challenging."
+      },
+      {
+        "professor": "Dr. Patricia White",
+        "subject": "Anthropology",
+        "stars": 3,
+        "review": "Dr. White's lectures are informative, but sometimes a bit too detailed."
+      },
+      {
+        "professor": "Prof. James Harris",
+        "subject": "Political Science",
+        "stars": 5,
+        "review": "Prof. Harris is amazing! His classes are both informative and thought-provoking."
+      },
+      {
+        "professor": "Dr. Elizabeth Clark",
+        "subject": "Linguistics",
+        "stars": 4,
+        "review": "Dr. Clark is very clear in her explanations, but there's a lot of material to cover."
+      },
+      {
+        "professor": "Prof. Charles Lewis",
+        "subject": "Music",
+        "stars": 5,
+        "review": "Prof. Lewis is an inspiring teacher and makes learning music theory enjoyable."
+      },
+      {
+        "professor": "Dr. Susan Walker",
+        "subject": "Engineering",
+        "stars": 2,
+        "review": "Dr. Walker is knowledgeable, but her teaching style is not very effective."
+      },
+      {
+        "professor": "Prof. George Hall",
+        "subject": "Environmental Science",
+        "stars": 4,
+        "review": "Prof. Hall's classes are interesting, and he incorporates a lot of real-world examples."
+      },
+      {
+        "professor": "Dr. Jennifer Young",
+        "subject": "Law",
+        "stars": 5,
+        "review": "Dr. Young is brilliant and her classes are challenging but rewarding."
+      },
+      {
+        "professor": "Prof. Kevin King",
+        "subject": "Marketing",
+        "stars": 3,
+        "review": "Prof. King is good, but sometimes the lectures are a bit too theoretical."
+      }
+    ]
+  }
