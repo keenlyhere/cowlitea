@@ -1,14 +1,13 @@
 "use client";
 import ReactMarkdown from "react-markdown";
 import { Box, Button, Stack, TextField } from "@mui/material";
-import Image from "next/image";
 import { useState } from "react";
 
 export default function Home() {
   const [messages, setMessages] = useState([
     {
       role: "assistant",
-      content: "Hi, I'm the rate my professor bot bro, how can i help",
+      content: "Hi, I'm the rate my professor bot bro, how can I help?",
     },
   ]);
   const [message, setMessage] = useState("");
@@ -53,7 +52,6 @@ export default function Home() {
     });
   };
 
-  //add professor
   const submitProfessorUrl = async () => {
     const response = await fetch("/api/professor", {
       method: "POST",
@@ -73,6 +71,7 @@ export default function Home() {
     ]);
     setProfessorUrl(""); // Clear the input after submission
   };
+
   return (
     <Box
       width="100vw"
@@ -90,58 +89,28 @@ export default function Home() {
         p={2}
         spacing={3}
       >
-        <Stack
-          direction="column"
-          spacing={2}
-          flexGrow={1}
-          overflow={"auto"}
-          maxHeight={"100%"}
-        >
+        <Stack direction="column" spacing={2} flexGrow={1} overflow={"auto"} maxHeight={"100%"}>
           {messages.map((message, index) => (
-            <Box
-              key={index}
-              display="flex"
-              justifyContent={
-                message.role === "assistant" ? "flex-start" : "flex-end"
-              }
-            >
-              <Box
-                bgcolor={
-                  message.role === "assistant"
-                    ? "primary.main"
-                    : "secondary.main"
-                }
-                color="white"
-                borderRadius={16}
-                p={3}
-              >
+            <Box key={index} display="flex" justifyContent={message.role === "assistant" ? "flex-start" : "flex-end"}>
+              <Box bgcolor={message.role === "assistant" ? "primary.main" : "secondary.main"} color="white" borderRadius={16} p={3}>
                 <ReactMarkdown>{message.content}</ReactMarkdown>
               </Box>
             </Box>
           ))}
         </Stack>
+
+        {/* Chat input  */}
         <Stack direction="row" spacing={2}>
-          <TextField
-            label="Message"
-            fullWidth
-            value={message}
-            onChange={(e) => {
-              setMessage(e.target.value);
-            }}
-          ></TextField>
+          <TextField label="Message" fullWidth value={message} onChange={(e) => setMessage(e.target.value)} />
           <Button variant="contained" onClick={sendMessage}>
             Send
           </Button>
-      </Stack>
         </Stack>
-        {/* New section for adding a professor */}
+
+      </Stack>
+        {/* Add a professor */}
         <Stack direction="row" spacing={2} mt={2}>
-          <TextField
-            label="Add Professor"
-            fullWidth
-            value={professorUrl}
-            onChange={(e) => setProfessorUrl(e.target.value)}
-          />
+          <TextField label="Add Professor" fullWidth value={professorUrl} onChange={(e) => setProfessorUrl(e.target.value)} />
           <Button variant="contained" onClick={submitProfessorUrl}>
             Submit
           </Button>
