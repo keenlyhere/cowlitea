@@ -9,24 +9,6 @@
 				"country": "USA",
 				"postalCode": "90210"
 			},
-			"menu": [
-				{
-					"drinkName": "Taro Milk Tea",
-					"description": "Creamy taro-flavored milk tea with chewy tapioca pearls.",
-					"price": 6
-				},
-				{
-					"drinkName": "Matcha Latte",
-					"description": "Smooth matcha green tea with a hint of sweetness.",
-					"price": 6
-				},
-				{
-					"drinkName": "Brown Sugar Boba",
-					"description": "Rich brown sugar syrup with fresh milk and boba pearls.",
-					"price": 7
-				}
-			],
-			"mostPopularDrinks": ["Taro Milk Tea", "Brown Sugar Boba"],
 			"hours": {
 				"monday": "10:00 AM - 9:00 PM",
 				"tuesday": "10:00 AM - 9:00 PM",
@@ -64,24 +46,6 @@
 				"country": "USA",
 				"postalCode": "75001"
 			},
-			"menu": [
-				{
-					"drinkName": "Honeydew Milk Tea",
-					"description": "Refreshing honeydew-flavored milk tea with tapioca pearls.",
-					"price": 6
-				},
-				{
-					"drinkName": "Oolong Tea Latte",
-					"description": "Smooth oolong tea with a creamy finish.",
-					"price": 6
-				},
-				{
-					"drinkName": "Strawberry Milk Tea",
-					"description": "Sweet strawberry-flavored milk tea with chewy boba pearls.",
-					"price": 6
-				}
-			],
-			"mostPopularDrinks": ["Honeydew Milk Tea", "Oolong Tea Latte"],
 			"hours": {
 				"monday": "10:00 AM - 8:00 PM",
 				"tuesday": "10:00 AM - 8:00 PM",
@@ -119,24 +83,6 @@
 				"country": "USA",
 				"postalCode": "10001"
 			},
-			"menu": [
-				{
-					"drinkName": "Thai Tea",
-					"description": "Strong brewed Thai tea with condensed milk and tapioca pearls.",
-					"price": 6
-				},
-				{
-					"drinkName": "Mango Slush",
-					"description": "Refreshing mango slush with popping boba.",
-					"price": 7
-				},
-				{
-					"drinkName": "Lychee Green Tea",
-					"description": "Sweet lychee-flavored green tea with chewy boba pearls.",
-					"price": 6
-				}
-			],
-			"mostPopularDrinks": ["Thai Tea", "Mango Slush"],
 			"hours": {
 				"monday": "9:00 AM - 8:00 PM",
 				"tuesday": "9:00 AM - 8:00 PM",
@@ -174,24 +120,6 @@
 				"country": "USA",
 				"postalCode": "33101"
 			},
-			"menu": [
-				{
-					"drinkName": "Matcha Green Tea",
-					"description": "Fresh matcha with a smooth finish, served with chewy boba pearls.",
-					"price": 7
-				},
-				{
-					"drinkName": "Wintermelon Milk Tea",
-					"description": "Sweet wintermelon with creamy milk tea.",
-					"price": 6
-				},
-				{
-					"drinkName": "Passionfruit Green Tea",
-					"description": "Refreshing passionfruit green tea with chewy boba pearls.",
-					"price": 6
-				}
-			],
-			"mostPopularDrinks": ["Matcha Green Tea", "Wintermelon Milk Tea"],
 			"hours": {
 				"monday": "10:00 AM - 8:00 PM",
 				"tuesday": "10:00 AM - 8:00 PM",
@@ -216,6 +144,709 @@
 						"comment": "Great drinks, but the line can be long.",
 						"reviewDate": "2024-07-15",
 						"reviewer": "Chris Taylor"
+					}
+				]
+			}
+		},
+		{
+			"shopName": "Tapioca Haven",
+			"location": {
+				"address": "234 Pearl St",
+				"city": "Boba Town",
+				"state": "CA",
+				"country": "USA",
+				"postalCode": "90212"
+			},
+			"hours": {
+				"monday": "10:00 AM - 8:00 PM",
+				"tuesday": "10:00 AM - 8:00 PM",
+				"wednesday": "10:00 AM - 8:00 PM",
+				"thursday": "10:00 AM - 9:00 PM",
+				"friday": "10:00 AM - 9:00 PM",
+				"saturday": "10:00 AM - 9:00 PM",
+				"sunday": "11:00 AM - 7:00 PM"
+			},
+			"ratings": {
+				"avgRating": 4.6,
+				"totalReviews": 140,
+				"reviewDetails": [
+					{
+						"rating": 5,
+						"comment": "Excellent tapioca, always fresh!",
+						"reviewDate": "2024-07-21",
+						"reviewer": "James Taylor"
+					},
+					{
+						"rating": 4,
+						"comment": "Nice ambiance, will visit again.",
+						"reviewDate": "2024-06-12",
+						"reviewer": "Sara Lee"
+					}
+				]
+			}
+		},
+		{
+			"shopName": "Boba Bonanza",
+			"location": {
+				"address": "345 Sip St",
+				"city": "Milk Tea City",
+				"state": "CA",
+				"country": "USA",
+				"postalCode": "90213"
+			},
+			"hours": {
+				"monday": "11:00 AM - 8:00 PM",
+				"tuesday": "11:00 AM - 8:00 PM",
+				"wednesday": "11:00 AM - 8:00 PM",
+				"thursday": "11:00 AM - 9:00 PM",
+				"friday": "11:00 AM - 9:00 PM",
+				"saturday": "11:00 AM - 9:00 PM",
+				"sunday": "12:00 PM - 7:00 PM"
+			},
+			"ratings": {
+				"avgRating": 4.5,
+				"totalReviews": 120,
+				"reviewDetails": [
+					{
+						"rating": 5,
+						"comment": "Best boba in town!",
+						"reviewDate": "2024-08-01",
+						"reviewer": "Rachel Green"
+					},
+					{
+						"rating": 4,
+						"comment": "Good, but service can be slow.",
+						"reviewDate": "2024-07-14",
+						"reviewer": "Monica Geller"
+					}
+				]
+			}
+		},
+		{
+			"shopName": "Bubblelicious",
+			"location": {
+				"address": "456 Tea Ln",
+				"city": "Boba Town",
+				"state": "TX",
+				"country": "USA",
+				"postalCode": "75002"
+			},
+			"hours": {
+				"monday": "10:00 AM - 8:00 PM",
+				"tuesday": "10:00 AM - 8:00 PM",
+				"wednesday": "10:00 AM - 8:00 PM",
+				"thursday": "10:00 AM - 9:00 PM",
+				"friday": "10:00 AM - 9:00 PM",
+				"saturday": "10:00 AM - 9:00 PM",
+				"sunday": "11:00 AM - 7:00 PM"
+			},
+			"ratings": {
+				"avgRating": 4.7,
+				"totalReviews": 110,
+				"reviewDetails": [
+					{
+						"rating": 5,
+						"comment": "Great variety of flavors!",
+						"reviewDate": "2024-08-05",
+						"reviewer": "Ross Geller"
+					},
+					{
+						"rating": 4,
+						"comment": "Love the milk tea here.",
+						"reviewDate": "2024-07-20",
+						"reviewer": "Chandler Bing"
+					}
+				]
+			}
+		},
+		{
+			"shopName": "Pearl Paradise",
+			"location": {
+				"address": "567 Tapioca Blvd",
+				"city": "Milk Tea City",
+				"state": "CA",
+				"country": "USA",
+				"postalCode": "90214"
+			},
+			"hours": {
+				"monday": "10:00 AM - 9:00 PM",
+				"tuesday": "10:00 AM - 9:00 PM",
+				"wednesday": "10:00 AM - 9:00 PM",
+				"thursday": "10:00 AM - 10:00 PM",
+				"friday": "10:00 AM - 10:00 PM",
+				"saturday": "10:00 AM - 10:00 PM",
+				"sunday": "11:00 AM - 8:00 PM"
+			},
+			"ratings": {
+				"avgRating": 4.8,
+				"totalReviews": 135,
+				"reviewDetails": [
+					{
+						"rating": 5,
+						"comment": "Amazing boba, super fresh!",
+						"reviewDate": "2024-07-30",
+						"reviewer": "Phoebe Buffay"
+					},
+					{
+						"rating": 4,
+						"comment": "A bit pricey but worth it.",
+						"reviewDate": "2024-07-10",
+						"reviewer": "Joey Tribbiani"
+					}
+				]
+			}
+		},
+		{
+			"shopName": "Tea Time",
+			"location": {
+				"address": "678 Sip Ave",
+				"city": "Boba Town",
+				"state": "TX",
+				"country": "USA",
+				"postalCode": "75003"
+			},
+			"hours": {
+				"monday": "11:00 AM - 9:00 PM",
+				"tuesday": "11:00 AM - 9:00 PM",
+				"wednesday": "11:00 AM - 9:00 PM",
+				"thursday": "11:00 AM - 10:00 PM",
+				"friday": "11:00 AM - 10:00 PM",
+				"saturday": "11:00 AM - 10:00 PM",
+				"sunday": "12:00 PM - 8:00 PM"
+			},
+			"ratings": {
+				"avgRating": 4.4,
+				"totalReviews": 100,
+				"reviewDetails": [
+					{
+						"rating": 5,
+						"comment": "Best tea in town, hands down!",
+						"reviewDate": "2024-08-02",
+						"reviewer": "Rachel Green"
+					},
+					{
+						"rating": 4,
+						"comment": "Nice place, but could be faster.",
+						"reviewDate": "2024-07-18",
+						"reviewer": "Ross Geller"
+					}
+				]
+			}
+		},
+		{
+			"shopName": "Bubble Bliss East",
+			"location": {
+				"address": "789 Tapioca Ave",
+				"city": "Pearl City",
+				"state": "NY",
+				"country": "USA",
+				"postalCode": "10002"
+			},
+			"hours": {
+				"monday": "10:00 AM - 9:00 PM",
+				"tuesday": "10:00 AM - 9:00 PM",
+				"wednesday": "10:00 AM - 9:00 PM",
+				"thursday": "10:00 AM - 10:00 PM",
+				"friday": "10:00 AM - 10:00 PM",
+				"saturday": "10:00 AM - 10:00 PM",
+				"sunday": "11:00 AM - 8:00 PM"
+			},
+			"ratings": {
+				"avgRating": 4.7,
+				"totalReviews": 110,
+				"reviewDetails": [
+					{
+						"rating": 5,
+						"comment": "Great tea, nice atmosphere.",
+						"reviewDate": "2024-08-03",
+						"reviewer": "Monica Geller"
+					},
+					{
+						"rating": 4,
+						"comment": "Service can be slow at times.",
+						"reviewDate": "2024-07-20",
+						"reviewer": "Chandler Bing"
+					}
+				]
+			}
+		},
+		{
+			"shopName": "Boba City",
+			"location": {
+				"address": "123 Boba Blvd",
+				"city": "Tea City",
+				"state": "FL",
+				"country": "USA",
+				"postalCode": "33101"
+			},
+			"hours": {
+				"monday": "10:00 AM - 8:00 PM",
+				"tuesday": "10:00 AM - 8:00 PM",
+				"wednesday": "10:00 AM - 8:00 PM",
+				"thursday": "10:00 AM - 9:00 PM",
+				"friday": "10:00 AM - 9:00 PM",
+				"saturday": "10:00 AM - 9:00 PM",
+				"sunday": "11:00 AM - 7:00 PM"
+			},
+			"ratings": {
+				"avgRating": 4.6,
+				"totalReviews": 115,
+				"reviewDetails": [
+					{
+						"rating": 5,
+						"comment": "Best boba I've had!",
+						"reviewDate": "2024-08-04",
+						"reviewer": "Phoebe Buffay"
+					},
+					{
+						"rating": 4,
+						"comment": "Great flavors but long lines.",
+						"reviewDate": "2024-07-15",
+						"reviewer": "Joey Tribbiani"
+					}
+				]
+			}
+		},
+		{
+			"shopName": "Tapioca Bliss",
+			"location": {
+				"address": "234 Pearl Ln",
+				"city": "Boba Town",
+				"state": "TX",
+				"country": "USA",
+				"postalCode": "75004"
+			},
+			"hours": {
+				"monday": "10:00 AM - 8:00 PM",
+				"tuesday": "10:00 AM - 8:00 PM",
+				"wednesday": "10:00 AM - 8:00 PM",
+				"thursday": "10:00 AM - 9:00 PM",
+				"friday": "10:00 AM - 9:00 PM",
+				"saturday": "10:00 AM - 9:00 PM",
+				"sunday": "11:00 AM - 7:00 PM"
+			},
+			"ratings": {
+				"avgRating": 4.7,
+				"totalReviews": 130,
+				"reviewDetails": [
+					{
+						"rating": 5,
+						"comment": "Amazing boba, always fresh!",
+						"reviewDate": "2024-07-25",
+						"reviewer": "Rachel Green"
+					},
+					{
+						"rating": 4,
+						"comment": "Nice ambiance, will visit again.",
+						"reviewDate": "2024-06-30",
+						"reviewer": "Ross Geller"
+					}
+				]
+			}
+		},
+		{
+			"shopName": "Pearl Delight",
+			"location": {
+				"address": "345 Sip St",
+				"city": "Milk Tea City",
+				"state": "CA",
+				"country": "USA",
+				"postalCode": "90215"
+			},
+			"hours": {
+				"monday": "11:00 AM - 8:00 PM",
+				"tuesday": "11:00 AM - 8:00 PM",
+				"wednesday": "11:00 AM - 8:00 PM",
+				"thursday": "11:00 AM - 9:00 PM",
+				"friday": "11:00 AM - 9:00 PM",
+				"saturday": "11:00 AM - 9:00 PM",
+				"sunday": "12:00 PM - 7:00 PM"
+			},
+			"ratings": {
+				"avgRating": 4.6,
+				"totalReviews": 125,
+				"reviewDetails": [
+					{
+						"rating": 5,
+						"comment": "Best boba in town!",
+						"reviewDate": "2024-08-02",
+						"reviewer": "Rachel Green"
+					},
+					{
+						"rating": 4,
+						"comment": "Good, but service can be slow.",
+						"reviewDate": "2024-07-10",
+						"reviewer": "Monica Geller"
+					}
+				]
+			}
+		},
+		{
+			"shopName": "Bubble Haven",
+			"location": {
+				"address": "456 Tea Ln",
+				"city": "Boba Town",
+				"state": "TX",
+				"country": "USA",
+				"postalCode": "75005"
+			},
+			"hours": {
+				"monday": "10:00 AM - 8:00 PM",
+				"tuesday": "10:00 AM - 8:00 PM",
+				"wednesday": "10:00 AM - 8:00 PM",
+				"thursday": "10:00 AM - 9:00 PM",
+				"friday": "10:00 AM - 9:00 PM",
+				"saturday": "10:00 AM - 9:00 PM",
+				"sunday": "11:00 AM - 7:00 PM"
+			},
+			"ratings": {
+				"avgRating": 4.7,
+				"totalReviews": 115,
+				"reviewDetails": [
+					{
+						"rating": 5,
+						"comment": "Great variety of flavors!",
+						"reviewDate": "2024-08-07",
+						"reviewer": "Ross Geller"
+					},
+					{
+						"rating": 4,
+						"comment": "Love the milk tea here.",
+						"reviewDate": "2024-07-25",
+						"reviewer": "Chandler Bing"
+					}
+				]
+			}
+		},
+		{
+			"shopName": "Boba Bliss",
+			"location": {
+				"address": "567 Tapioca Blvd",
+				"city": "Milk Tea City",
+				"state": "CA",
+				"country": "USA",
+				"postalCode": "90216"
+			},
+			"hours": {
+				"monday": "10:00 AM - 9:00 PM",
+				"tuesday": "10:00 AM - 9:00 PM",
+				"wednesday": "10:00 AM - 9:00 PM",
+				"thursday": "10:00 AM - 10:00 PM",
+				"friday": "10:00 AM - 10:00 PM",
+				"saturday": "10:00 AM - 10:00 PM",
+				"sunday": "11:00 AM - 8:00 PM"
+			},
+			"ratings": {
+				"avgRating": 4.8,
+				"totalReviews": 140,
+				"reviewDetails": [
+					{
+						"rating": 5,
+						"comment": "Amazing boba, super fresh!",
+						"reviewDate": "2024-07-29",
+						"reviewer": "Phoebe Buffay"
+					},
+					{
+						"rating": 4,
+						"comment": "A bit pricey but worth it.",
+						"reviewDate": "2024-07-08",
+						"reviewer": "Joey Tribbiani"
+					}
+				]
+			}
+		},
+		{
+			"shopName": "Tea Paradise",
+			"location": {
+				"address": "678 Sip Ave",
+				"city": "Boba Town",
+				"state": "TX",
+				"country": "USA",
+				"postalCode": "75006"
+			},
+			"hours": {
+				"monday": "11:00 AM - 9:00 PM",
+				"tuesday": "11:00 AM - 9:00 PM",
+				"wednesday": "11:00 AM - 9:00 PM",
+				"thursday": "11:00 AM - 10:00 PM",
+				"friday": "11:00 AM - 10:00 PM",
+				"saturday": "11:00 AM - 10:00 PM",
+				"sunday": "12:00 PM - 8:00 PM"
+			},
+			"ratings": {
+				"avgRating": 4.5,
+				"totalReviews": 130,
+				"reviewDetails": [
+					{
+						"rating": 5,
+						"comment": "Best tea in town, hands down!",
+						"reviewDate": "2024-08-02",
+						"reviewer": "Rachel Green"
+					},
+					{
+						"rating": 4,
+						"comment": "Nice place, but could be faster.",
+						"reviewDate": "2024-07-12",
+						"reviewer": "Ross Geller"
+					}
+				]
+			}
+		},
+		{
+			"shopName": "Bubble Love",
+			"location": {
+				"address": "789 Tapioca Ave",
+				"city": "Pearl City",
+				"state": "NY",
+				"country": "USA",
+				"postalCode": "10003"
+			},
+			"hours": {
+				"monday": "10:00 AM - 9:00 PM",
+				"tuesday": "10:00 AM - 9:00 PM",
+				"wednesday": "10:00 AM - 9:00 PM",
+				"thursday": "10:00 AM - 10:00 PM",
+				"friday": "10:00 AM - 10:00 PM",
+				"saturday": "10:00 AM - 10:00 PM",
+				"sunday": "11:00 AM - 8:00 PM"
+			},
+			"ratings": {
+				"avgRating": 4.8,
+				"totalReviews": 135,
+				"reviewDetails": [
+					{
+						"rating": 5,
+						"comment": "Great tea, nice atmosphere.",
+						"reviewDate": "2024-08-02",
+						"reviewer": "Monica Geller"
+					},
+					{
+						"rating": 4,
+						"comment": "Service can be slow at times.",
+						"reviewDate": "2024-07-20",
+						"reviewer": "Chandler Bing"
+					}
+				]
+			}
+		},
+		{
+			"shopName": "Pearl Pearl",
+			"location": {
+				"address": "123 Boba Blvd",
+				"city": "Tea City",
+				"state": "FL",
+				"country": "USA",
+				"postalCode": "33102"
+			},
+			"hours": {
+				"monday": "10:00 AM - 8:00 PM",
+				"tuesday": "10:00 AM - 8:00 PM",
+				"wednesday": "10:00 AM - 8:00 PM",
+				"thursday": "10:00 AM - 9:00 PM",
+				"friday": "10:00 AM - 9:00 PM",
+				"saturday": "10:00 AM - 9:00 PM",
+				"sunday": "11:00 AM - 7:00 PM"
+			},
+			"ratings": {
+				"avgRating": 4.7,
+				"totalReviews": 140,
+				"reviewDetails": [
+					{
+						"rating": 5,
+						"comment": "Best boba I've had!",
+						"reviewDate": "2024-08-04",
+						"reviewer": "Phoebe Buffay"
+					},
+					{
+						"rating": 4,
+						"comment": "Great flavors but long lines.",
+						"reviewDate": "2024-07-15",
+						"reviewer": "Joey Tribbiani"
+					}
+				]
+			}
+		},
+		{
+			"shopName": "Blissful Sips",
+			"location": {
+				"address": "234 Pearl Ln",
+				"city": "Boba Town",
+				"state": "TX",
+				"country": "USA",
+				"postalCode": "75007"
+			},
+			"hours": {
+				"monday": "10:00 AM - 8:00 PM",
+				"tuesday": "10:00 AM - 8:00 PM",
+				"wednesday": "10:00 AM - 8:00 PM",
+				"thursday": "10:00 AM - 9:00 PM",
+				"friday": "10:00 AM - 9:00 PM",
+				"saturday": "10:00 AM - 9:00 PM",
+				"sunday": "11:00 AM - 7:00 PM"
+			},
+			"ratings": {
+				"avgRating": 4.8,
+				"totalReviews": 145,
+				"reviewDetails": [
+					{
+						"rating": 5,
+						"comment": "Amazing boba, always fresh!",
+						"reviewDate": "2024-07-22",
+						"reviewer": "Rachel Green"
+					},
+					{
+						"rating": 4,
+						"comment": "Nice ambiance, will visit again.",
+						"reviewDate": "2024-06-30",
+						"reviewer": "Ross Geller"
+					}
+				]
+			}
+		},
+		{
+			"shopName": "Paradise Pearl",
+			"location": {
+				"address": "345 Sip St",
+				"city": "Milk Tea City",
+				"state": "CA",
+				"country": "USA",
+				"postalCode": "90217"
+			},
+			"hours": {
+				"monday": "11:00 AM - 8:00 PM",
+				"tuesday": "11:00 AM - 8:00 PM",
+				"wednesday": "11:00 AM - 8:00 PM",
+				"thursday": "11:00 AM - 9:00 PM",
+				"friday": "11:00 AM - 9:00 PM",
+				"saturday": "11:00 AM - 9:00 PM",
+				"sunday": "12:00 PM - 7:00 PM"
+			},
+			"ratings": {
+				"avgRating": 4.7,
+				"totalReviews": 150,
+				"reviewDetails": [
+					{
+						"rating": 5,
+						"comment": "Best boba in town!",
+						"reviewDate": "2024-08-02",
+						"reviewer": "Rachel Green"
+					},
+					{
+						"rating": 4,
+						"comment": "Good, but service can be slow.",
+						"reviewDate": "2024-07-10",
+						"reviewer": "Monica Geller"
+					}
+				]
+			}
+		},
+		{
+			"shopName": "Boba Bliss North",
+			"location": {
+				"address": "456 Tea Ln",
+				"city": "Boba Town",
+				"state": "TX",
+				"country": "USA",
+				"postalCode": "75008"
+			},
+			"hours": {
+				"monday": "10:00 AM - 8:00 PM",
+				"tuesday": "10:00 AM - 8:00 PM",
+				"wednesday": "10:00 AM - 8:00 PM",
+				"thursday": "10:00 AM - 9:00 PM",
+				"friday": "10:00 AM - 9:00 PM",
+				"saturday": "10:00 AM - 9:00 PM",
+				"sunday": "11:00 AM - 7:00 PM"
+			},
+			"ratings": {
+				"avgRating": 4.8,
+				"totalReviews": 155,
+				"reviewDetails": [
+					{
+						"rating": 5,
+						"comment": "Great variety of flavors!",
+						"reviewDate": "2024-08-10",
+						"reviewer": "Ross Geller"
+					},
+					{
+						"rating": 4,
+						"comment": "Love the milk tea here.",
+						"reviewDate": "2024-07-20",
+						"reviewer": "Chandler Bing"
+					}
+				]
+			}
+		},
+		{
+			"shopName": "Blissful Sips East",
+			"location": {
+				"address": "567 Tapioca Blvd",
+				"city": "Milk Tea City",
+				"state": "CA",
+				"country": "USA",
+				"postalCode": "90218"
+			},
+			"hours": {
+				"monday": "10:00 AM - 9:00 PM",
+				"tuesday": "10:00 AM - 9:00 PM",
+				"wednesday": "10:00 AM - 9:00 PM",
+				"thursday": "10:00 AM - 10:00 PM",
+				"friday": "10:00 AM - 10:00 PM",
+				"saturday": "10:00 AM - 10:00 PM",
+				"sunday": "11:00 AM - 8:00 PM"
+			},
+			"ratings": {
+				"avgRating": 4.7,
+				"totalReviews": 160,
+				"reviewDetails": [
+					{
+						"rating": 5,
+						"comment": "Amazing boba, super fresh!",
+						"reviewDate": "2024-07-30",
+						"reviewer": "Phoebe Buffay"
+					},
+					{
+						"rating": 4,
+						"comment": "A bit pricey but worth it.",
+						"reviewDate": "2024-07-18",
+						"reviewer": "Joey Tribbiani"
+					}
+				]
+			}
+		},
+		{
+			"shopName": "Tea Bliss South",
+			"location": {
+				"address": "678 Sip Ave",
+				"city": "Boba Town",
+				"state": "TX",
+				"country": "USA",
+				"postalCode": "75009"
+			},
+			"hours": {
+				"monday": "11:00 AM - 9:00 PM",
+				"tuesday": "11:00 AM - 9:00 PM",
+				"wednesday": "11:00 AM - 9:00 PM",
+				"thursday": "11:00 AM - 10:00 PM",
+				"friday": "11:00 AM - 10:00 PM",
+				"saturday": "11:00 AM - 10:00 PM",
+				"sunday": "12:00 PM - 8:00 PM"
+			},
+			"ratings": {
+				"avgRating": 4.7,
+				"totalReviews": 140,
+				"reviewDetails": [
+					{
+						"rating": 5,
+						"comment": "Best tea in town, hands down!",
+						"reviewDate": "2024-08-02",
+						"reviewer": "Rachel Green"
+					},
+					{
+						"rating": 4,
+						"comment": "Nice place, but could be faster.",
+						"reviewDate": "2024-07-14",
+						"reviewer": "Ross Geller"
 					}
 				]
 			}
