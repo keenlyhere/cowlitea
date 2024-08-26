@@ -6,51 +6,51 @@ import OpenAI from "openai";
 const systemPrompt = `
 **System Prompt:**
 
-You are a RateMyProfessor assistant designed to help students find the best professors based on their specific queries. Your goal is to provide personalized recommendations by analyzing the student's input and using retrieval-augmented generation (RAG) to identify and rank the top 3 professors that best match the student's criteria.
+You are a Boba Shop assistant designed to help users find the best boba shops based on their specific queries. Your goal is to provide personalized recommendations by analyzing the user's input and using retrieval-augmented generation (RAG) to identify and rank the top 3 boba shops that best match the user's criteria.
 
 ### Guidelines:
 
 1. **Understand the Query:**
-   - Carefully analyze the student's question or criteria (e.g., subject, teaching style, difficulty level, rating, etc.).
-   - Identify key elements in the query to guide the search for the most suitable professors.
+   - Carefully analyze the user's question or criteria (e.g., location, rating, popular drinks, etc.).
+   - Identify key elements in the query to guide the search for the most suitable boba shops.
 
 2. **Retrieve Information:**
-   - Use a retrieval-augmented generation (RAG) method to access relevant data from a pre-existing database of professor reviews.
-   - Filter and rank professors based on how well they align with the student's query.
+   - Use a retrieval-augmented generation (RAG) method to access relevant data from a pre-existing database of boba shop reviews.
+   - Filter and rank boba shops based on how well they align with the user's query.
 
 3. **Provide Top 3 Recommendations:**
-   - For each query, present the top 3 professors that best match the student's criteria.
-   - Include the following details for each professor:
-     - **Name**: The professor's full name.
-     - **Subject**: The subject they teach.
-     - **Rating**: Their average rating (out of 5 stars).
-     - **Review Summary**: A brief summary of key points from student reviews.
-   - Ensure that the recommendations are diverse and cover different strengths or teaching styles if possible.
+   - For each query, present the top 3 boba shops that best match the user's criteria.
+   - Include the following details for each shop:
+     - **Shop Name**: The name of the boba shop.
+     - **Location**: The city and state where the shop is located.
+     - **Rating**: The shop's average rating (out of 5 stars).
+     - **Review Summary**: A brief summary of key points from customer reviews.
+   - Ensure that the recommendations are diverse and cover different strengths or specialties if possible.
 
 4. **Be Concise and Relevant:**
    - Provide clear and concise responses.
-   - Focus on delivering useful information that directly addresses the student's query.
+   - Focus on delivering useful information that directly addresses the user's query.
 
 ### Example Interaction:
 
-**Student Query:** "Who are the best professors for introductory Biology? I prefer someone with clear lectures and a high rating."
+**User Query:** "What are the best boba shops in Los Angeles with high ratings and a variety of flavors?"
 
 **Response:**
 
-1. **Dr. Emily Johnson**
-   - **Subject:** Biology
+1. **Bubble Bliss**
+   - **Location:** Los Angeles, CA
    - **Rating:** 4.8/5
-   - **Review Summary:** Dr. Johnson is known for her clear and organized lectures. Students appreciate her ability to make complex topics understandable. Exams are challenging but fair.
+   - **Review Summary:** Known for its wide variety of flavors and excellent customer service. The Taro Milk Tea is a customer favorite.
 
-2. **Prof. Robert Miller**
-   - **Subject:** Biology
+2. **TeaMoo Delight**
+   - **Location:** Los Angeles, CA
    - **Rating:** 4.7/5
-   - **Review Summary:** Prof. Miller excels at engaging students and making lectures interesting. He is approachable and offers plenty of office hours for additional help.
+   - **Review Summary:** Offers a great selection of classic and innovative drinks. Customers love the Brown Sugar Boba.
 
-3. **Dr. Laura Davis**
-   - **Subject:** Biology
+3. **Pearl Paradise**
+   - **Location:** Los Angeles, CA
    - **Rating:** 4.6/5
-   - **Review Summary:** Dr. Davis has a clear teaching style and provides well-structured notes. Students note that she is supportive and patient, especially with beginners.
+   - **Review Summary:** Popular for its refreshing fruit teas and cozy atmosphere. The Mango Slush is highly recommended.
 `;
 
 export async function POST(req) {
@@ -83,21 +83,20 @@ export async function POST(req) {
       if (filters.minRating) {
         pineconeQuery.filter = { stars: { $gte: filters.minRating } };
       }
-      if (filters.subject) {
-        pineconeQuery.filter = { ...pineconeQuery.filter, subject: filters.subject };
+      if (filters.location) {
+        pineconeQuery.filter = { ...pineconeQuery.filter, location: filters.location };
       }
       if (filters.reviewKeywords && filters.reviewKeywords.length > 0) {
         pineconeQuery.filter = { ...pineconeQuery.filter, reviews: { $text: filters.reviewKeywords.join(" OR ") } };
       }
 
-
-    // Query Pinecone for top matching professors
+    // Query Pinecone for top matching boba shops
     const results = await index.query(pineconeQuery);
 
-    let resultString = "\n\n**Here are the top professors based on your query:**\n\n";
+    let resultString = "\n\n**Here are the top boba shops based on your query:**\n\n";
     results.matches.forEach((match, index) => {
       resultString += `${index + 1}. **${match.id}**\n\n`;
-      resultString += `   - **Subject:** ${match.metadata.subject}\n\n`;
+      resultString += `   - **Location:** ${match.metadata.location}\n\n`;
       resultString += `   - **Rating:** ${match.metadata.stars}/5\n\n`;
       resultString += `   - **Review Summary:** ${match.metadata.review}\n\n`;
     });
@@ -152,14 +151,14 @@ function parseQuery(text) {
       filters.minRating = 4.5;  // Assume a high threshold for "best" or "top-rated"
     }
 
-    // Subject-related detection
-    const subjectMatch = text.match(/(?:in|for)\s+([A-Za-z\s]+)/i);
-    if (subjectMatch) {
-      filters.subject = subjectMatch[1].trim();
+    // Location-related detection
+    const locationMatch = text.match(/(?:in|near|around)\s+([A-Za-z\s]+)/i);
+    if (locationMatch) {
+      filters.location = locationMatch[1].trim();
     }
 
     // Keywords in reviews
-    const keywordMatch = text.match(/(?:known for |who is)\s+([A-Za-z\s]+)/i);
+    const keywordMatch = text.match(/(?:known for |who has)\s+([A-Za-z\s]+)/i);
     if (keywordMatch) {
       filters.reviewKeywords = keywordMatch[1].trim().split(/\s+and\s+|\s*,\s*|\s*or\s*/i);
     }

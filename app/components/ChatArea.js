@@ -2,14 +2,12 @@ import ReactMarkdown from "react-markdown";
 import { Box, Button, Stack, TextField } from "@mui/material";
 import { useState, useContext } from "react";
 import { ChatContext } from "../context/ChatContext";
-import { addDoc, collection, updateDoc, doc } from "firebase/firestore";
+import { updateDoc, doc } from "firebase/firestore";
 import { db } from "@/firebase";
-import { useUser } from "@clerk/nextjs";
 
 export default function ChatArea() {
-  const { currentConversation, setCurrentConversation, addMessage } =
+  const { currentConversation } =
     useContext(ChatContext);
-  const { user } = useUser();
   const [messages, setMessages] = useState(
     currentConversation ? currentConversation.messages : []
   );

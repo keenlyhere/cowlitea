@@ -5,8 +5,7 @@ import { useUser } from "@clerk/nextjs";
 import {
   createConversation,
   updateConversation,
-  deleteConversation,
-  fetchConversationById,
+
   listenToUserConversations
 } from "../utils/firebaseUtils";
 
@@ -31,7 +30,7 @@ export const ChatProvider = ({ children }) => {
       });
       return () => unsubscribe();
     }
-  }, [user]);
+  }, [user, currentConversation, router]);
 
   const startNewConversation = async () => {
     if (!user) return;
@@ -49,14 +48,14 @@ export const ChatProvider = ({ children }) => {
     router.push(`/conversation/${newConversation.id}`);
   };
 
-  const addMessage = async (message) => {
-    if (!currentConversation) return;
+  // const addMessage = async (message) => {
+  //   if (!currentConversation) return;
 
-    const updatedMessages = [...currentConversation.messages, message];
-    await updateConversation(currentConversation.id, updatedMessages);
+  //   const updatedMessages = [...currentConversation.messages, message];
+  //   await updateConversation(currentConversation.id, updatedMessages);
 
-    setCurrentConversation((prev) => ({ ...prev, messages: updatedMessages }));
-  };
+  //   setCurrentConversation((prev) => ({ ...prev, messages: updatedMessages }));
+  // };
 
   return (
     <ChatContext.Provider
@@ -65,7 +64,7 @@ export const ChatProvider = ({ children }) => {
         currentConversation,
         startNewConversation,
         setCurrentConversation,
-        addMessage,
+        // addMessage,
       }}
     >
       {children}

@@ -27,7 +27,7 @@ export default function Sidebar() {
     useContext(ChatContext);
   const router = useRouter();
   const [isModalOpen, setModalOpen] = useState(false);
-  const [professorUrl, setProfessorUrl] = useState("");
+  const [bobaShopUrl, setBobaShopUrl] = useState("");
   const [anchorEl, setAnchorEl] = useState(null);
   const { user, isLoaded, isSignedIn } = useUser();
 
@@ -54,28 +54,28 @@ export default function Sidebar() {
     return "New Conversation";
   };
 
-  const handleAddProfessor = async () => {
+  const handleAddBobaShop = async () => {
     try {
-      const response = await fetch("/api/professor", {
+      const response = await fetch("/api/bobaShop", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ url: professorUrl }),
+        body: JSON.stringify({ url: bobaShopUrl }),
       });
 
       const result = await response.json();
       if (response.ok) {
-        alert("Professor data added successfully!");
+        alert("Boba shop data added successfully!");
       } else {
         alert(`Error: ${result.error}`);
       }
     } catch (error) {
-      console.error("Failed to add professor:", error);
-      alert("An error occurred while adding the professor.");
+      console.error("Failed to add boba shop:", error);
+      alert("An error occurred while adding the boba shop.");
     } finally {
       setModalOpen(false);
-      setProfessorUrl("");
+      setBobaShopUrl("");
     }
   };
 
@@ -120,7 +120,7 @@ export default function Sidebar() {
           sx={{ mt: 2 }}
           onClick={() => setModalOpen(true)}
         >
-          Add Professor
+          Add Boba Shop
         </Button>
         <List>
           {conversations.map((conversation) => (
@@ -185,23 +185,23 @@ export default function Sidebar() {
         )}
       </Box>
 
-      {/* Modal for Adding a Professor */}
+      {/* Modal for Adding a Boba Shop */}
       <Dialog open={isModalOpen} onClose={() => setModalOpen(false)}>
-        <DialogTitle>Add Professor</DialogTitle>
+        <DialogTitle>Add Boba Shop</DialogTitle>
         <DialogContent>
           <TextField
             autoFocus
             margin="dense"
-            label="RateMyProfessors URL"
+            label="Boba Shop URL"
             type="url"
             fullWidth
-            value={professorUrl}
-            onChange={(e) => setProfessorUrl(e.target.value)}
+            value={bobaShopUrl}
+            onChange={(e) => setBobaShopUrl(e.target.value)}
           />
         </DialogContent>
         <DialogActions>
           <Button onClick={() => setModalOpen(false)}>Cancel</Button>
-          <Button onClick={handleAddProfessor} variant="contained">
+          <Button onClick={handleAddBobaShop} variant="contained">
             Add
           </Button>
         </DialogActions>
