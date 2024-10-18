@@ -1,4 +1,4 @@
-import { useState, useContext } from "react";
+import { useState, useContext } from "react"
 import {
   Box,
   Button,
@@ -12,89 +12,90 @@ import {
   DialogContent,
   TextField,
   DialogActions,
-  Menu,
-  MenuItem,
   Typography,
-} from "@mui/material";
-import { Delete } from "@mui/icons-material";
-import { ChatContext } from "../context/ChatContext";
-import { deleteConversation } from "../utils/firebaseUtils";
-import { useRouter } from "next/navigation";
-import { useUser, SignOutButton } from "@clerk/nextjs";
+  Collapse,
+} from "@mui/material"
+import { Delete } from "@mui/icons-material"
+import { ChatContext } from "../context/ChatContext"
+import { deleteConversation } from "../utils/firebaseUtils"
+import { useRouter } from "next/navigation"
+import { useUser, SignOutButton } from "@clerk/nextjs"
+import Image from "next/image"
 
 export default function Sidebar() {
-  const { conversations, currentConversation, setCurrentConversation, startNewConversation } =
-    useContext(ChatContext);
-  const router = useRouter();
-  const [isModalOpen, setModalOpen] = useState(false);
-  const [bobaShopUrl, setBobaShopUrl] = useState("");
-  const [anchorEl, setAnchorEl] = useState(null);
-  const { user, isLoaded, isSignedIn } = useUser();
+  const {
+    conversations,
+    currentConversation,
+    setCurrentConversation,
+    startNewConversation,
+  } = useContext(ChatContext)
+  const router = useRouter()
+  const [isModalOpen, setModalOpen] = useState(false)
+  const [bobaShopUrl, setBobaShopUrl] = useState("")
+  const [showSignOut, setShowSignOut] = useState(false)
+  const { user, isLoaded, isSignedIn } = useUser()
 
   const handleDeleteConversation = async (conversationId) => {
-    await deleteConversation(conversationId);
+    await deleteConversation(conversationId)
 
     if (currentConversation?.id === conversationId) {
       if (conversations.length > 1) {
-        const nextConversation = conversations.find((conv) => conv.id !== conversationId);
-        setCurrentConversation(nextConversation);
-        router.push(`/conversation/${nextConversation.id}`);
+        const nextConversation = conversations.find(
+          (conv) => conv.id !== conversationId
+        )
+        setCurrentConversation(nextConversation)
+        router.push(`/conversation/${nextConversation.id}`)
       } else {
-        setCurrentConversation(null);
-        router.push("/");
+        setCurrentConversation(null)
+        router.push("/dashboard")
       }
     }
-  };
+  }
 
   const getConversationTitle = (conversation) => {
     if (conversation.messages && conversation.messages.length > 0) {
-      const firstMessage = conversation.messages[0].content;
-      return firstMessage.split(" ").slice(0, 5).join(" ") + "...";
+      const firstMessage = conversation.messages[0].content
+      return firstMessage.split(" ").slice(0, 5).join(" ") + "..."
     }
-    return "New Conversation";
-  };
+    return "New Conversation"
+  }
 
   const handleAddBobaShop = async () => {
     try {
       const response = await fetch("/api/bobaShop", {
         method: "POST",
         headers: {
-          "Content-Type": "application/json",
+          "Content-Type": "application/json"
         },
-        body: JSON.stringify({ url: bobaShopUrl }),
-      });
+        body: JSON.stringify({ url: bobaShopUrl })
+      })
 
-      const result = await response.json();
+      const result = await response.json()
       if (response.ok) {
-        alert("Boba shop data added successfully!");
+        alert("Boba shop data added successfully!")
       } else {
-        alert(`Error: ${result.error}`);
+        alert(`Error: ${result.error}`)
       }
     } catch (error) {
-      console.error("Failed to add boba shop:", error);
-      alert("An error occurred while adding the boba shop.");
+      console.error("Failed to add boba shop:", error)
+      alert("An error occurred while adding the boba shop.")
     } finally {
-      setModalOpen(false);
-      setBobaShopUrl("");
+      setModalOpen(false)
+      setBobaShopUrl("")
     }
-  };
+  }
 
-  const handleUserMenuClick = (event) => {
-    setAnchorEl(event.currentTarget);
-  };
+  const handleUserMenuClick = () => {
+    setShowSignOut((prev) => !prev)
+  }
 
-  const handleUserMenuClose = () => {
-    setAnchorEl(null);
-  };
-
-  // display name
-  let displayName = "User";
+  let displayName = "User"
   if (isLoaded) {
     if (isSignedIn && user) {
       if (user.firstName && user.lastName) {
-        displayName = `${user.firstName} ${user.lastName}`;
+        displayName = `${user.firstName} ${user.lastName}`
       } else if (user.emailAddresses && user.emailAddresses.length > 0) {
-        displayName = user.emailAddresses[0].emailAddress;
+        displayName = user.emailAddresses[0].emailAddress
       }
     }
   }
@@ -109,7 +110,6 @@ export default function Sidebar() {
       justifyContent="space-between"
       height="100vh"
     >
-      {/* Top Section */}
       <Box>
         <Button variant="contained" fullWidth onClick={startNewConversation}>
           New Conversation
@@ -137,10 +137,19 @@ export default function Sidebar() {
                 </IconButton>
               }
             >
-              <ListItemButton
+             <ListItemButton
                 onClick={() => {
-                  setCurrentConversation(conversation);
-                  router.push(`/conversation/${conversation.id}`);
+                  setCurrentConversation(conversation)
+                  router.push(`/conversation/${conversation.id}`)
+                }}
+                sx={{
+                  border: currentConversation?.id === conversation.id
+                    ? "2px solid #1976D2"
+                    : "none",
+                  borderRadius: "8px",
+                  backgroundColor: currentConversation?.id === conversation.id
+                    ? "rgba(25, 118, 210, 0.08)"  
+                    : "transparent",
                 }}
               >
                 <ListItemText primary={getConversationTitle(conversation)} />
@@ -150,7 +159,6 @@ export default function Sidebar() {
         </List>
       </Box>
 
-      {/* User Info and Sign Out Button */}
       <Box>
         {isLoaded && isSignedIn && user ? (
           <>
@@ -159,33 +167,33 @@ export default function Sidebar() {
               sx={{ justifyContent: "flex-start" }}
               onClick={handleUserMenuClick}
               startIcon={
-                user.imageUrl ? (
-                  <img
-                    src={user.imageUrl}
-                    alt="User Avatar"
-                    style={{ width: 24, height: 24, borderRadius: "50%" }}
-                  />
-                ) : null
+                <Image
+                  src={user.imageUrl || "/default-avatar.png"}
+                  alt="User Avatar"
+                  width={24}
+                  height={24}
+                  style={{ borderRadius: "50%" }}
+                />
               }
             >
               <Typography variant="body1">{displayName}</Typography>
             </Button>
-            <Menu
-              anchorEl={anchorEl}
-              open={Boolean(anchorEl)}
-              onClose={handleUserMenuClose}
-            >
-              <MenuItem onClick={handleUserMenuClose}>
-                <SignOutButton />
-              </MenuItem>
-            </Menu>
+
+            <Collapse in={showSignOut}>
+              <Box mt={1} display="flex" justifyContent="flex-start">
+                <SignOutButton>
+                  <Button variant="contained" color="secondary" size="small">
+                    Sign Out
+                  </Button>
+                </SignOutButton>
+              </Box>
+            </Collapse>
           </>
         ) : (
           <Typography variant="body1">Loading...</Typography>
         )}
       </Box>
 
-      {/* Modal for Adding a Boba Shop */}
       <Dialog open={isModalOpen} onClose={() => setModalOpen(false)}>
         <DialogTitle>Add Boba Shop</DialogTitle>
         <DialogContent>
@@ -207,5 +215,5 @@ export default function Sidebar() {
         </DialogActions>
       </Dialog>
     </Box>
-  );
+  )
 }

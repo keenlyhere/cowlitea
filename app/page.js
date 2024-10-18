@@ -1,15 +1,21 @@
-
-
 'use client'
-import { Box } from "@mui/material";
-import Sidebar from "./components/Sidebar";
-import ChatArea from "./components/ChatArea";
+import { useEffect } from "react"
+import { useRouter } from "next/navigation"
+import { useUser } from "@clerk/nextjs"
 
-export default function Layout() {
-  return (
-    <Box display="flex" height="100vh">
-      <Sidebar />
-      <ChatArea />
-    </Box>
-  );
+export default function HomePage() {
+  const { isSignedIn, isLoaded } = useUser()
+  const router = useRouter()
+
+  useEffect(() => {
+    if (!isLoaded) return
+
+    if (isSignedIn) {
+      router.replace("/dashboard")
+    } else {
+      router.replace("/landing")
+    }
+  }, [isSignedIn, isLoaded, router])
+
+  return <div>Loading...</div> 
 }
