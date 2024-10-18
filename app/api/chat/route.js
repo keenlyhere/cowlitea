@@ -139,29 +139,83 @@ export async function POST(req) {
   }
 }
 
-//detect if it is a query
 function parseQuery(text) {
-    const filters = {};
+  const filters = {};
 
-    // Rating-related detection
-    const ratingMatch = text.match(/(?:rating|rated)\s+(?:above|higher than|at least)\s+(\d+(\.\d+)?)/i);
-    if (ratingMatch) {
-      filters.minRating = parseFloat(ratingMatch[1]);
-    } else if (text.includes("best") || text.includes("top-rated") || text.includes("highly rated")) {
-      filters.minRating = 4.5;  // Assume a high threshold for "best" or "top-rated"
-    }
-
-    // Location-related detection
-    const locationMatch = text.match(/(?:in|near|around)\s+([A-Za-z\s]+)/i);
-    if (locationMatch) {
-      filters.location = locationMatch[1].trim();
-    }
-
-    // Keywords in reviews
-    const keywordMatch = text.match(/(?:known for |who has)\s+([A-Za-z\s]+)/i);
-    if (keywordMatch) {
-      filters.reviewKeywords = keywordMatch[1].trim().split(/\s+and\s+|\s*,\s*|\s*or\s*/i);
-    }
-
-    return filters;
+  // Rating
+  const ratingMatch = text.match(/(?:rating|rated)\s+(above|higher than|greater than|at least|below|less than|under|exactly)\s+(\d+(\.\d+)?)/i);
+  if (ratingMatch) {
+      const comparison = ratingMatch[1].toLowerCase();
+      const ratingValue = parseFloat(ratingMatch[2]);
+      if (['above', 'higher than', 'greater than', 'at least'].includes(comparison)) {
+          filters.minRating = ratingValue;
+      } else if (['below', 'less than', 'under'].includes(comparison)) {
+          filters.maxRating = ratingValue;
+      } else if (comparison === 'exactly') {
+          filters.exactRating = ratingValue;
+      }
+  } else if (text.match(/\b(best|top-rated|highly rated)\b/i)) {
+      filters.minRating = 4.5;  
   }
+
+  // Location
+  const locationMatch = text.match(/(?:in|near|around|located in|from)\s+([A-Za-z\s]+)/i);
+  if (locationMatch) {
+      filters.location = locationMatch[1].trim();
+  }
+
+  // Shop name
+  const shopNames = [
+      "Bubble Bliss", "TeaMoo Delight", "Moo Moo Tea House", "Pearl Perfection", "Tapioca Haven",
+      "Boba Bonanza", "Bubblelicious", "Pearl Paradise", "Tea Time", "Bubble Bliss East",
+      "Boba City", "Tapioca Bliss", "Pearl Delight", "Bubble Haven", "Boba Bliss", "Tea Paradise",
+      "Bubble Love", "Pearl Pearl", "Blissful Sips", "Paradise Pearl", "Boba Bliss North",
+      "Blissful Sips East", "Tea Bliss South"
+  ];
+  const shopNamePattern = new RegExp(`\\b(${shopNames.join('|')})\\b`, 'i');
+  const shopNameMatch = text.match(shopNamePattern);
+  if (shopNameMatch) {
+      filters.shopName = shopNameMatch[1];
+  }
+
+  // Review Keywords
+  const keywordMatch = text.match(/(?:known for|who has|with|serving|offers?)\s+([A-Za-z\s]+)/i);
+  if (keywordMatch) {
+      filters.reviewKeywords = keywordMatch[1].trim().split(/\s+and\s+|\s*,\s*|\s*or\s*/i);
+  }
+
+  // Open now
+  if (text.match(/\b(open now|currently open|open today)\b/i)) {
+      filters.openNow = true;
+  }
+
+  // Day of the week
+  const dayMatch = text.match(/(?:on|open on)\s+(monday|tuesday|wednesday|thursday|friday|saturday|sunday)/i);
+  if (dayMatch) {
+      filters.day = dayMatch[1].toLowerCase();
+  }
+
+  // City
+  const cities = ["Milk Tea City", "Boba Town", "Pearl City", "Tea City"];
+  const cityPattern = new RegExp(`\\b(${cities.join('|')})\\b`, 'i');
+  const cityMatch = text.match(cityPattern);
+  if (cityMatch) {
+      filters.city = cityMatch[1];
+  }
+
+  // State
+  const states = ["CA", "TX", "NY", "FL"];
+  const statePattern = new RegExp(`\\b(${states.join('|')})\\b`, 'i');
+  const stateMatch = text.match(statePattern);
+  if (stateMatch) {
+      filters.state = stateMatch[1];
+  }
+
+  // Postal code
+  const postalCodeMatch = text.match(/\b(?:zip|postal code)\s+(\d{5})\b/i);
+  if (postalCodeMatch) {
+      filters.postalCode = postalCodeMatch[1];
+  }
+
+  return filters;
+}
