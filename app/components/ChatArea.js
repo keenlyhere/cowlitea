@@ -1,38 +1,41 @@
-import ReactMarkdown from "react-markdown";
-import { Box, Button, Stack, TextField } from "@mui/material";
-import { useState, useContext } from "react";
-import { ChatContext } from "../context/ChatContext";
-import { updateDoc, doc } from "firebase/firestore";
-import { db } from "@/firebase";
+import ReactMarkdown from "react-markdown"
+import { Box, Button, Stack, TextField } from "@mui/material"
+import { useState, useContext } from "react"
+import { ChatContext } from "../context/ChatContext"
+import { updateDoc, doc } from "firebase/firestore"
+import { db } from "@/firebase"
+import { useUser } from "@clerk/nextjs"
 
 export default function ChatArea() {
+  const { user } = useUser()
   const { currentConversation } =
-    useContext(ChatContext);
+    useContext(ChatContext)
   const [messages, setMessages] = useState(
     currentConversation ? currentConversation.messages : []
-  );
-  const [message, setMessage] = useState("");
+  )
+  const [message, setMessage] = useState("")
 
   const sendMessage = async () => {
-    if (!message.trim() || !currentConversation) return;
+    if (!message.trim() || !currentConversation) return
 
     const userMessage = {
       role: "user",
       content: message,
       timestamp: new Date(),
-    };
+      userId: user.id
+    }
     const newMessages = [
       ...messages,
       userMessage,
       { role: "assistant", content: "", timestamp: new Date() },
-    ];
-    setMessages(newMessages);
-    setMessage("");
+    ]
+    setMessages(newMessages)
+    setMessage("")
 
     await updateDoc(doc(db, "conversations", currentConversation.id), {
       messages: newMessages,
       updatedAt: new Date(),
-    });
+    })
 
     fetch("/api/chat", {
       method: "POST",
@@ -41,45 +44,45 @@ export default function ChatArea() {
       },
       body: JSON.stringify([...messages, userMessage]),
     }).then(async (res) => {
-      const reader = res.body.getReader();
-      const decoder = new TextDecoder();
-      let fullResponse = "";
+      const reader = res.body.getReader()
+      const decoder = new TextDecoder()
+      let fullResponse = ""
 
       reader.read().then(function processText({ done, value }) {
-        if (done) return;
+        if (done) return
 
         const text = decoder.decode(value || new Uint8Array(), {
           stream: true,
-        });
-        fullResponse += text;
+        })
+        fullResponse += text
 
         setMessages((prevMessages) => {
-          const lastMessageIndex = prevMessages.length - 1;
-          const updatedMessages = [...prevMessages];
+          const lastMessageIndex = prevMessages.length - 1
+          const updatedMessages = [...prevMessages]
           updatedMessages[lastMessageIndex] = {
             ...prevMessages[lastMessageIndex],
             content: fullResponse.trim(),
-          };
-          return updatedMessages;
-        });
+          }
+          return updatedMessages
+        })
 
-        return reader.read().then(processText);
-      });
+        return reader.read().then(processText)
+      }).finally(async () => {
+        await updateDoc(doc(db, "conversations", currentConversation.id), {
+          messages: [
+            ...newMessages.slice(0, -1),
+            {
+              role: "assistant",
+              content: fullResponse.trim(),
+              timestamp: new Date(),
+            },
+          ],
+          updatedAt: new Date(),
+        })
+      })
+    })
+  }
 
-      // Update Firebase with the complete assistant's response
-      await updateDoc(doc(db, "conversations", currentConversation.id), {
-        messages: [
-          ...newMessages.slice(0, -1), // Everything except the last assistant's empty message
-          {
-            role: "assistant",
-            content: fullResponse.trim(),
-            timestamp: new Date(),
-          },
-        ],
-        updatedAt: new Date(),
-      });
-    });
-  };
 
   if (!currentConversation) {
     return (
@@ -93,7 +96,7 @@ export default function ChatArea() {
       >
         <p>You do not have any conversations</p>
       </Box>
-    );
+    )
   }
 
   return (
@@ -112,6 +115,7 @@ export default function ChatArea() {
             justifyContent={
               message.role === "assistant" ? "flex-start" : "flex-end"
             }
+
           >
             <Box
               bgcolor={
@@ -119,7 +123,7 @@ export default function ChatArea() {
               }
               color="white"
               borderRadius={16}
-              p={2}
+              p={4}
             >
               <ReactMarkdown>{message.content}</ReactMarkdown>
             </Box>
@@ -138,5 +142,5 @@ export default function ChatArea() {
         </Button>
       </Stack>
     </Box>
-  );
+  )
 }

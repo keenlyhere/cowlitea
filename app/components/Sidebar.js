@@ -47,7 +47,7 @@ export default function Sidebar() {
         router.push(`/conversation/${nextConversation.id}`)
       } else {
         setCurrentConversation(null)
-        router.push("/")
+        router.push("/dashboard")
       }
     }
   }
@@ -137,10 +137,19 @@ export default function Sidebar() {
                 </IconButton>
               }
             >
-              <ListItemButton
+             <ListItemButton
                 onClick={() => {
                   setCurrentConversation(conversation)
                   router.push(`/conversation/${conversation.id}`)
+                }}
+                sx={{
+                  border: currentConversation?.id === conversation.id
+                    ? "2px solid #1976D2"
+                    : "none",
+                  borderRadius: "8px",
+                  backgroundColor: currentConversation?.id === conversation.id
+                    ? "rgba(25, 118, 210, 0.08)"  
+                    : "transparent",
                 }}
               >
                 <ListItemText primary={getConversationTitle(conversation)} />

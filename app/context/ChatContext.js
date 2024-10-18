@@ -4,9 +4,8 @@ import { useRouter } from 'next/navigation';
 import { useUser } from "@clerk/nextjs";
 import {
   createConversation,
-  updateConversation,
-
-  listenToUserConversations
+  listenToUserConversations,
+  createOrUpdateUserInFirestore
 } from "../utils/firebaseUtils";
 
 export const ChatContext = createContext();
@@ -15,10 +14,16 @@ export const ChatProvider = ({ children }) => {
   const [conversations, setConversations] = useState([]);
   const [currentConversation, setCurrentConversation] = useState(null);
   const router = useRouter();
-  const { user } = useUser();
+  const { user, isLoaded  } = useUser();
 
   useEffect(() => {
-    if (user) {
+    if (isLoaded && user) {
+      createOrUpdateUserInFirestore(user.id, user.emailAddresses[0].emailAddress, user.fullName);
+    }
+  }, [isLoaded, user]);
+
+  useEffect(() => {
+    if (isLoaded && user) {
       const unsubscribe = listenToUserConversations(user.id, (querySnapshot) => {
         const convos = querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
         convos.sort((a, b) => b.updatedAt?.toMillis() - a.updatedAt?.toMillis());

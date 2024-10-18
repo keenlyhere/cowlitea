@@ -1,14 +1,16 @@
-"use client";
+"use client"
 import { Box, Button, Typography } from "@mui/material";
-import { SignIn, useSignIn, useAuth } from "@clerk/nextjs";
-import { useRouter } from "next/navigation";
-import { useEffect, useState } from "react";
+import { SignIn, useSignIn, useAuth, useUser } from "@clerk/nextjs"
+import { useRouter } from "next/navigation"
+import { useEffect, useState } from "react"
+import { createOrUpdateUserInFirestore } from "../utils/firebaseUtils"
 
 export default function CustomSignInPage() {
-  const router = useRouter();
-  const { signIn, isLoaded } = useSignIn();
-  const { isSignedIn } = useAuth();
-  const [loadingDemo, setLoadingDemo] = useState(false);
+  const router = useRouter()
+  const { signIn, isLoaded } = useSignIn()
+  const { isSignedIn } = useAuth()
+  const { user, isLoaded: isUserLoaded } = useUser()
+  const [loadingDemo, setLoadingDemo] = useState(false)
 
   const handleDemoSignIn = async () => {
     if (!isLoaded || loadingDemo) return;
@@ -22,7 +24,9 @@ export default function CustomSignInPage() {
       });
 
       if (signInResult.status === "complete") {
-          router.replace("/dashboard")
+        setTimeout(() => {
+          router.replace("/dashboard");
+        }, 500)
       } else {
         console.error("Sign-in did not complete.");
       }
@@ -35,10 +39,12 @@ export default function CustomSignInPage() {
   };
 
   useEffect(() => {
-    if (isSignedIn) {
-      router.replace("/dashboard");
+    if (isSignedIn && isUserLoaded && user) {
+      createOrUpdateUserInFirestore(user)
     }
-  }, [isSignedIn, router]);
+  }, [isSignedIn, isUserLoaded, user])
+
+
 
   return (
     <Box
@@ -69,5 +75,5 @@ export default function CustomSignInPage() {
         </Box>
       </Box>
     </Box>
-  );
+  )
 }
