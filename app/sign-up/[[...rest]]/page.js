@@ -1,8 +1,8 @@
 'use client';
-import { SignUp, useUser } from "@clerk/nextjs"; 
+import { SignUp, useUser } from "@clerk/nextjs";
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
-import { createOrUpdateUserInFirestore } from "../utils/firebaseUtils";
+import { createOrUpdateUserInFirestore } from "../../utils/firebaseUtils";
 
 export default function SignUpPage() {
   const { isLoaded, isSignedIn, user } = useUser();
