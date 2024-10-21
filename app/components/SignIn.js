@@ -7,7 +7,7 @@ import { createOrUpdateUserInFirestore } from "../utils/firebaseUtils"
 
 export default function CustomSignInPage() {
   const router = useRouter()
-  const { signIn, isLoaded } = useSignIn()
+  const { signIn, isLoaded, setActive } = useSignIn()
   const { isSignedIn } = useAuth()
   const { user, isLoaded: isUserLoaded } = useUser()
   const [loadingDemo, setLoadingDemo] = useState(false)
@@ -24,6 +24,7 @@ export default function CustomSignInPage() {
       });
 
       if (signInResult.status === "complete") {
+        setActive({ session: signInResult.createdSessionId });
         setTimeout(() => {
           router.replace("/dashboard");
         }, 500)

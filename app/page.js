@@ -17,5 +17,5 @@ export default function HomePage() {
     }
   }, [isSignedIn, isLoaded, router])
 
-  return <div>Loading...</div> 
+  return <div>Loading...</div>
 }
