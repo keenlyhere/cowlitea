@@ -8,7 +8,7 @@ import { useEffect } from "react"
 export default function LandingPage() {
   const router = useRouter()
   const { signIn, isLoaded } = useSignIn()
-  const { isSignedIn, user } = useUser()
+  const { isSignedIn, user, isLoaded: isUserLoaded } = useUser()
 
 useEffect(() => {
   if (isLoaded && isSignedIn) {
